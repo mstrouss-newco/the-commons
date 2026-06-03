@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Commons</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{background:#13110e;color:#f4f1ea;
+    font-family:Georgia,'Iowan Old Style','Times New Roman',serif;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:8vh 8vw;min-height:100vh;-webkit-font-smoothing:antialiased;}
+  .line{font-size:clamp(1.6rem,4.2vw,3.2rem);font-weight:normal;line-height:1.45;max-width:22ch;
+    opacity:0;transform:translateY(14px);transition:opacity 1.3s ease,transform 1.3s ease;}
+  .line.in{opacity:1;transform:none;}
+  .bar{width:80px;height:1px;background:#8a857c;margin:2.4rem 0;opacity:0;transition:opacity 1.2s ease;}
+  .bar.in{opacity:1;}
+
+  /* tiny corner link */
+  .enter{position:fixed;top:1.5rem;right:1.7rem;z-index:10;opacity:0;transition:opacity 1.2s ease;}
+  .enter.in{opacity:1;}
+  .pbtn{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.6rem;letter-spacing:.22em;
+    text-transform:uppercase;color:#5f5b54;text-decoration:none;transition:color .3s;}
+  .pbtn:hover{color:#cfc9bf;}
+</style>
+</head>
+<body>
+  <div class="line" id="l1">Everyone has a story to tell through food.</div>
+  <div class="bar" id="bar"></div>
+  <div class="line" id="l2">We're building a table big enough for all of them.</div>
+
+  <!-- Where the full deck lives. Point this at the deck's real path/URL if it changes. -->
+  <div class="enter" id="enter">
+    <a class="pbtn" href="the_commons_landing_v11.html">Partners</a>
+  </div>
+
+<script>
+  setTimeout(()=>document.getElementById('l1').classList.add('in'),300);
+  setTimeout(()=>document.getElementById('bar').classList.add('in'),1400);
+  setTimeout(()=>document.getElementById('l2').classList.add('in'),1900);
+  setTimeout(()=>document.getElementById('enter').classList.add('in'),2700);
+</script>
+</body>
+</html>

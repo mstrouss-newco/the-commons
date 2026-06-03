@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Commons</title>
+<style>
+  :root{
+    --ink:#13110e;
+    --paper:#f4f1ea;
+    --mute:#6f6b64;
+    --rule:#c8c2b6;
+    --card:#ece7dd;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);
+    font-family:Georgia,'Iowan Old Style','Times New Roman',serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1.5rem,6vw,6rem);}
+  section{position:relative;}
+  .eyebrow{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.7rem;
+    letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-bottom:1.6rem;}
+  .beat{opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;}
+  .beat.in{opacity:1;transform:none;}
+  .pop{font-weight:bold;color:var(--ink);}
+
+  .pgnum{position:absolute;top:4.5vh;left:clamp(1.5rem,6vw,6rem);font-family:-apple-system,Helvetica,Arial,sans-serif;
+    font-size:.72rem;letter-spacing:.18em;color:var(--mute);z-index:2;}
+  .dark .pgnum{color:#8a857c;}
+
+  .screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9vh clamp(1.5rem,6vw,6rem);max-width:1120px;margin:0 auto;}
+  .block{padding:13vh 0;}
+
+  .hero{background:var(--ink);color:var(--paper);max-width:none;text-align:center;align-items:center;}
+  .hero .top,.hero .built{font-size:clamp(1.7rem,4.4vw,3.4rem);font-weight:normal;line-height:1.4;max-width:16ch;}
+  .hero .cover-name{font-size:clamp(2.6rem,7.2vw,5rem);font-weight:normal;letter-spacing:.05em;line-height:1.1;}
+  .hero .cover-tag{font-size:clamp(1.05rem,2.3vw,1.55rem);color:#cfc9bf;max-width:30ch;line-height:1.5;}
+  .hero .bar{width:90px;height:1px;background:#8a857c;margin:2.4rem 0;opacity:0;transition:opacity 1s ease .5s;}
+  .hero .bar.in{opacity:1;}
+  .scrollcue{position:absolute;bottom:4vh;left:50%;transform:translateX(-50%);font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#7a766f;}
+
+  h2{font-size:clamp(1.9rem,4.6vw,3.2rem);font-weight:normal;line-height:1.18;max-width:22ch;margin-bottom:1.6rem;}
+  .big{font-size:clamp(2rem,5vw,3.4rem);font-weight:normal;line-height:1.3;}
+  p.body{font-size:clamp(1.08rem,1.7vw,1.3rem);color:#2a2722;max-width:54ch;margin-bottom:1.3rem;}
+  p.body.soft{color:var(--mute);}
+  .lede{font-size:clamp(1.15rem,2vw,1.45rem);color:var(--mute);max-width:50ch;margin-bottom:1.4rem;}
+
+  .meet{background:var(--ink);color:var(--paper);max-width:none;}
+  .meet .eyebrow{color:#a39e95;}
+  .meet .lead{font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:normal;line-height:1.18;max-width:18ch;margin-bottom:2.2rem;}
+  .meet p{font-size:clamp(1.2rem,2.1vw,1.55rem);color:#d9d4ca;max-width:52ch;margin-bottom:1.3rem;}
+  .meet .pop{color:#fff;}
+
+  .stats{display:flex;flex-wrap:wrap;gap:2.6rem 4rem;margin:2.6rem 0;}
+  .stat .n{font-size:clamp(1.9rem,4.2vw,3rem);line-height:1;}
+  .stat .l{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);margin-top:.6rem;max-width:18ch;}
+
+  hr.rule{height:1px;background:var(--rule);border:0;margin:2.4rem 0;}
+
+  .deflist{margin-top:2rem;}
+  .deflist .row{padding:1.4rem 0;border-top:1px solid var(--rule);}
+  .deflist .row:last-child{border-bottom:1px solid var(--rule);}
+  .deflist .k{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:.5rem;}
+  .deflist .v{font-size:1.1rem;color:#2a2722;max-width:60ch;}
+
+  /* two content types */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;margin:2.4rem 0;}
+  .twocol .col{border-top:2px solid var(--ink);padding-top:1.2rem;}
+  .twocol .ct{font-size:1.4rem;margin-bottom:.7rem;}
+  .twocol .cd{font-size:1.05rem;color:#2a2722;}
+
+  .cmp{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;margin-top:2rem;font-size:1rem;}
+  .cmp div{padding:.85rem 1rem;border-bottom:1px solid var(--rule);}
+  .cmp .h{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);}
+  .cmp .us{font-weight:bold;background:var(--card);}
+  .cmp .lbl{color:var(--mute);}
+
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem 3rem;margin-top:2rem;}
+  .team .name{font-size:1.3rem;margin-bottom:.7rem;}
+  .team .role{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:.4rem 0 .8rem;}
+  .team .bio{font-size:1rem;color:#2a2722;}
+
+  @media(min-width:860px){
+    .deflist .row{display:grid;grid-template-columns:1fr 2.1fr;gap:2.5rem;align-items:baseline;}
+    .deflist .k{margin-bottom:0;}
+    .block{padding:15vh 0;}
+  }
+  @media(max-width:680px){
+    .twocol{grid-template-columns:1fr;gap:1.8rem;}
+    .cmp{grid-template-columns:1.3fr .85fr .85fr;font-size:.82rem;}
+    .cmp div{padding:.6rem .5rem;}
+    .team{grid-template-columns:1fr;}
+    .screen{padding:11vh 7vw;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 01 · COVER -->
+<section class="hero screen dark">
+  <div class="pgnum">01</div>
+  <div class="cover-name beat">The Commons</div>
+  <div class="bar" id="bar"></div>
+  <div class="cover-tag beat" style="transition-delay:.6s">Food is the medium. Story is the product. The room is the studio.</div>
+  <div class="scrollcue">Scroll</div>
+</section>
+
+<!-- 02 · A LITTLE HISTORY -->
+<section class="block">
+  <div class="pgnum">02</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">A little history</div>
+      <h2>Once upon a time, we built the <span class="pop">largest hands-on cooking class in the country.</span></h2>
+      <p class="body">Under LivingSocial, our team retrofitted a 200-year-old, 30,000-square-foot building in downtown Washington and named it 918 F Street. Without quite realizing it, we'd created something that existed nowhere else: a room where dozens of people cooked side by side, led by the best chefs in the city — and the biggest names in food.</p>
+    </div>
+    <div class="beat">
+      <p class="body">Most nights were led by the city's top culinary talent — the chefs behind the restaurants people were already lined up to get into. But the magic showed up when we brought in national names who simply had <span class="pop">a story to tell through food:</span> a healthy-cooking class with Biz Markie, a night with Top Chef winner — and now host — Kristen Kish, dishes from José Andrés' Jaleo, and a molecular-gastronomy night led by the chef behind his minibar.</p>
+    </div>
+    <div class="beat stats">
+      <div class="stat"><div class="n">$10M+</div><div class="l">In sales</div></div>
+      <div class="stat"><div class="n">150K</div><div class="l">Guests per year</div></div>
+      <div class="stat"><div class="n">80</div><div class="l">Events per week</div></div>
+      <div class="stat"><div class="n">300+</div><div class="l">Unique concepts</div></div>
+      <div class="stat"><div class="n">200+</div><div class="l">Premium partners</div></div>
+      <div class="stat"><div class="n">93</div><div class="l">Net Promoter Score</div></div>
+    </div>
+    <div class="beat">
+      <p class="body soft">It was voted the best cooking class in DC. Then LivingSocial pulled back, and in 2014, 918 F Street closed — and for ten years, no one rebuilt it.</p>
+      <p class="big pop" style="margin-top:1.5rem;">So we did.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · MEET THE COMMONS -->
+<section class="meet screen dark">
+  <div class="pgnum">03</div>
+  <div class="beat">
+    <div class="eyebrow">Meet The Commons</div>
+    <div class="lead">A chain of high-end, large-scale teaching kitchens that power a media empire.</div>
+    <p>The only place to cook side by side with <span class="pop">your city's best chefs, the creators you follow, and the celebrities you love</span> — in a real, premium kitchen, with a meal and a drink in your hands at the end of the night.</p>
+    <p>A bigger room changes the math: large enough to bring in names a sixteen-seat class never could, and full enough that <span class="pop">a seat still costs about what dinner does.</span> It's kind of a big dill.</p>
+  </div>
+</section>
+
+<!-- 04 · THE EXPERIENCE -->
+<section class="block">
+  <div class="pgnum">04</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">The experience</div>
+      <h2>We reimagined the entire cooking class.</h2>
+      <p class="lede"><span class="pop" style="color:var(--ink)">No measuring, no mess, no clean-up</span> — just a smart, beautiful room and a night you made yourself.</p>
+    </div>
+    <div class="deflist beat">
+      <div class="row"><div class="k">First-of-a-kind stations</div><div class="v">Every guest cooks like they're in their dream kitchen — induction, real tools, room to move.</div></div>
+      <div class="row"><div class="k">A tablet at every station</div><div class="v">Up-close looks at every technique, in real time, so nobody misses the moment.</div></div>
+      <div class="row"><div class="k">A help button</div><div class="v">Quietly signal a team member — for a technique, a clean utensil, or another cocktail.</div></div>
+      <div class="row"><div class="k">Comfortable seating</div><div class="v">Sit back and enjoy the multi-course meal you just made, paired with wine or cocktails.</div></div>
+      <div class="row"><div class="k">A full staff</div><div class="v">A world-class experience start to finish, from the first drink to the last plate.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · WHO LEADS THE ROOM -->
+<section class="block">
+  <div class="pgnum">05</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">Who leads the room</div>
+      <h2>Not just for chefs. <span class="pop">Everyone has a story to tell through food.</span></h2>
+    </div>
+    <div class="deflist beat">
+      <div class="row"><div class="k">Standard class</div><div class="v">Led by chefs from the restaurants you love, marketed to their following and ours.</div></div>
+      <div class="row"><div class="k">Creator class</div><div class="v">Culinary and non-culinary talent with a real audience, turning their followers into a Friday night.</div></div>
+      <div class="row"><div class="k">Celebrity class</div><div class="v">Superstars in the kitchen — the nights people will remember for years.</div></div>
+      <div class="row"><div class="k">Private events</div><div class="v">Buy-outs of favorite concepts, booked at a premium.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · THE MODEL -->
+<section class="block">
+  <div class="pgnum">06</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">A predictable, profitable model</div>
+      <h2><span class="pop">We only fly the plane when it's full.</span></h2>
+      <p class="body">Every class is booked weeks ahead and released in batches, so we only ever run a room that's already sold. Staffing and ingredients barely vary, <span class="pop">profit is engineered in,</span> and an under-sold night simply gets consolidated or rescheduled. Concepts rotate constantly, so there's always a fresh reason to come back.</p>
+      <p class="body soft">Forty-eight seats a class, twenty classes a week, with a blended ticket around $143.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · THE CONTENT / MEDIA ENGINE -->
+<section class="block">
+  <div class="pgnum">07</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">An evergreen content engine</div>
+      <h2 class="big" style="max-width:20ch;">More content than Food Network. At <span class="pop">literally zero cost.</span></h2>
+      <p class="body" style="margin-top:1.4rem;">Every single class is filmed live. A chain of rooms becomes a media machine, producing thousands of hours a year of two kinds of content:</p>
+    </div>
+    <div class="twocol beat">
+      <div class="col">
+        <div class="ct">Hyper-local</div>
+        <div class="cd">The recipes and techniques behind your favorite local restaurants — taught by the people who actually make them.</div>
+      </div>
+      <div class="col">
+        <div class="ct">Hyper-exciting</div>
+        <div class="cd">Creators, celebrities, and comedians in unscripted formats — pair a chef with a comedian and that's a series.</div>
+      </div>
+    </div>
+    <div class="beat">
+      <p class="body">The talent is paid at the door — $700 to $10,000 a night — and those same tickets cover the entire cost of the shoot. <span class="pop">And then some:</span> the room turns a profit on its own, before a single sponsorship, brand deal, or view is counted. Every other studio spends money to make content and hopes to earn it back; we've already made ours.</p>
+      <p class="big pop" style="margin-top:1.2rem;max-width:30ch;">We'd turn a profit without publishing a single frame. We're going to publish thousands of hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · COMPETITIVE -->
+<section class="block">
+  <div class="pgnum">08</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">The industry today</div>
+      <h2>Bigger, better, and far more profitable than anything out there.</h2>
+      <p class="body">A typical cooking class seats sixteen people who share burners and follow an instructor they've never heard of — or you pay $500-plus for a multi-week course at a culinary school. <span class="pop">The Commons is a different category:</span> personal stations, real talent, tablets and cameras at every seat, and a full bar.</p>
+    </div>
+    <div class="cmp beat">
+      <div class="h"></div><div class="h">Top competitor</div><div class="h us">The Commons</div>
+      <div class="lbl">Annual revenue, single unit</div><div>$1.67M</div><div class="us">$8.3M</div>
+      <div class="lbl">Capacity per class</div><div>16</div><div class="us">48</div>
+      <div class="lbl">Unit EBITDA</div><div>$365K</div><div class="us">$2.27M</div>
+      <div class="lbl">Margin</div><div>13%</div><div class="us">27%</div>
+    </div>
+    <p class="body soft beat" style="margin-top:1.4rem;">There are other cooking classes out there. But nothing butter than The Commons.</p>
+  </div>
+</section>
+
+<!-- 09 · BIG PICTURE -->
+<section class="block">
+  <div class="pgnum">09</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">The big picture</div>
+      <h2>A media empire, powered by <span class="pop">millions of can't-miss nights.</span></h2>
+      <p class="body">It isn't the rooms that make this extraordinary — it's the nights inside them. Each one is a you-had-to-be-there experience: a celebrity in an apron, a chef opening their kitchen, a creator with their whole audience in the room. And there's always a new one — so guests don't come once, they come back through the year.</p>
+      <p class="body">And each of those rooms is already a profitable business on its own.</p>
+    </div>
+    <div class="beat stats">
+      <div class="stat"><div class="n">$8.3M</div><div class="l">Year-two unit revenue</div></div>
+      <div class="stat"><div class="n">$2.27M</div><div class="l">Year-two unit EBITDA</div></div>
+      <div class="stat"><div class="n">~$2.3M</div><div class="l">To build a unit</div></div>
+      <div class="stat"><div class="n">~14 mo</div><div class="l">Payback</div></div>
+    </div>
+    <p class="body soft beat">The plan: <span class="pop" style="color:var(--ink)">ten units over eight years — roughly $42.5M in EBITDA and a $340M+ enterprise at maturity,</span> with the talent circulating between markets and the brands following them across the network.</p>
+  </div>
+</section>
+
+<!-- 10 · TEAM -->
+<section class="block">
+  <div class="pgnum">10</div>
+  <div class="wrap">
+    <div class="beat">
+      <div class="eyebrow">This is our jam</div>
+      <h2>We've built a one-of-a-kind culinary venue before.</h2>
+    </div>
+    <div class="team beat">
+      <div>
+        <div class="name">Mike Strouss</div>
+        <div class="bio">Has generated $150M+ in new-product-to-market revenue across operations and growth leadership roles at LivingSocial, Prizeo, ShopShops, and Capsule.</div>
+      </div>
+      <div>
+        <div class="name">Lauren Werner</div>
+        <div class="bio">Former General Manager of LivingSocial's 918 F Street; currently COO of ShopShops.</div>
+      </div>
+      <div>
+        <div class="name">Andy Gottlieb</div>
+        <div class="bio">Founder of Sandwell and CFO of Blackfoot Hospitality.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · CLOSE -->
+<section class="screen">
+  <div class="pgnum">11</div>
+  <div class="beat">
+    <h2 class="big" style="max-width:20ch;">We're building the first one in Los Angeles.</h2>
+    <p class="lede" style="margin-top:1.5rem;">If you want to see the room before anyone else does, let's talk.</p>
+  </div>
+</section>
+
+<script>
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.18});
+  document.querySelectorAll('.beat,#bar').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
