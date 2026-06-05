@@ -208,6 +208,26 @@
     .team{grid-template-columns:1fr;}
     .screen{padding:11vh 7vw;}
   }
+
+  /* slide 8 — dynamic network flow */
+  .netflow{margin:2.4rem 0 .3rem;text-align:center;}
+  .nf-cap{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
+  .nf-in{color:var(--blue);margin-bottom:.9rem;}
+  .nf-out{color:var(--ink);margin:.5rem 0 .9rem;}
+  .nf-stream{position:relative;height:58px;margin:.15rem 0;overflow:hidden;}
+  .nf-stream .d{position:absolute;top:-7px;width:6px;height:6px;border-radius:50%;background:var(--blue);opacity:0;animation-name:nfflow;animation-timing-function:linear;animation-iteration-count:infinite;}
+  @keyframes nfflow{0%{transform:translateY(0);opacity:0}12%{opacity:.95}80%{opacity:.95}100%{transform:translateY(62px);opacity:0}}
+  .nf-cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:14px;margin:.2rem 0;}
+  .nf-city{position:relative;background:var(--ink);color:#fff;border-radius:13px;padding:1.35rem .7rem;font-size:1.02rem;font-weight:800;letter-spacing:-.01em;}
+  .liv{position:absolute;top:10px;right:11px;width:7px;height:7px;border-radius:50%;background:var(--neon);animation:livpulse 1.9s ease-out infinite;}
+  @keyframes livpulse{0%{box-shadow:0 0 0 0 rgba(198,255,0,.55)}70%{box-shadow:0 0 0 9px rgba(198,255,0,0)}100%{box-shadow:0 0 0 0 rgba(198,255,0,0)}}
+  .nf-bignum{font-size:clamp(1.5rem,3vw,2.4rem);font-weight:900;color:var(--blue);margin:.05rem 0 1rem;letter-spacing:-.015em;}
+  .chips.dark span{background:var(--ink);color:#fff;border-color:var(--ink);}
+  @media (prefers-reduced-motion:reduce){.nf-stream .d,.liv{animation:none!important;}.nf-stream .d{opacity:.5;}}
+
+  .vpill{display:inline-block;background:var(--neon);color:#101010;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:7px 15px;border-radius:20px;}
+
+  .twocol .cd p{margin-bottom:.7rem;} .twocol .cd p:last-child{margin-bottom:0;} .twocol .cd b{font-weight:800;}
 </style>
 </head>
 <body>
@@ -289,9 +309,39 @@
   </div>
 </div></section>
 
-<!-- 06 MODEL -->
+<!-- WHY TALENT SAYS YES -->
 <section class="block" style="--acc:var(--blue)"><div class="wrap">
   <div class="marker"><span class="num">06</span><span class="bar"></span></div>
+  <div class="beat">
+    <div class="eyebrow">Why the talent says yes</div>
+    <h2><span class="pop">We pay the talent to promote themselves.</span></h2>
+    <p class="body">For the best chefs, restaurateurs, and creators, the room is the easiest yes in food — paid, completely turnkey, and a content machine for their own brand.</p>
+  </div>
+  <div class="twocol beat">
+    <div class="col">
+      <div class="ct">Chefs &amp; restaurateurs</div>
+      <div class="cd">
+        <p><b>Completely turnkey.</b> Show up and cook — no discounting your tables, no closing your dining room for an event. Your restaurant never skips a beat.</p>
+        <p><b>Get paid.</b> $700–$10,000 a night, from ticket sales alone.</p>
+        <p><b>Fill the room with future regulars.</b> A sold-out crowd that leaves wanting to book a table.</p>
+        <p><b>Content you'd otherwise pay for.</b> We film your food, your story, your recipes — the brand content a PR or social team charges thousands a month to make. We pay you to create it, and it's yours to keep.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="ct">Creators</div>
+      <div class="cd">
+        <p><b>Meet your audience in real life.</b> The first place to turn an online following into a room full of people, around the food you all care about.</p>
+        <p><b>A format built for content.</b> Every night is a shoot — footage, recipes, and moments produced for you.</p>
+        <p><b>A home base, not a one-off.</b> A recurring, ownable way to be with your community offline.</p>
+      </div>
+    </div>
+  </div>
+  <p class="body pop beat" style="margin-top:1.7rem;color:var(--ink);font-size:1.2rem;line-height:1.4;">Everywhere else, talent pays to market themselves. Here, we pay <em style="font-style:normal;background:var(--neon);padding:0 .15em;">them</em> — and hand them the audience, the night, and the content.</p>
+</div></section>
+
+<!-- MODEL -->
+<section class="block" style="--acc:var(--blue)"><div class="wrap">
+  <div class="marker"><span class="num">07</span><span class="bar"></span></div>
   <div class="beat">
     <div class="eyebrow">A predictable, profitable model</div>
     <h2><span class="pop">We only fly the plane when it's full.</span></h2>
@@ -302,7 +352,7 @@
 
 <!-- 07 CONTENT -->
 <section class="block" style="--acc:var(--neon)"><div class="wrap">
-  <div class="marker"><span class="num">07</span><span class="bar"></span></div>
+  <div class="marker"><span class="num">08</span><span class="bar"></span></div>
   <div class="beat">
     <div class="eyebrow">An evergreen content engine</div>
     <h2 class="big" style="max-width:18ch;">More content than Food Network. At <span class="hl">literally zero cost.</span></h2>
@@ -341,25 +391,28 @@
 
 <!-- 08 NETWORK -->
 <section class="block" style="--acc:var(--blue)"><div class="wrap">
-  <div class="marker"><span class="num">08</span><span class="bar"></span></div>
+  <div class="marker"><span class="num">09</span><span class="bar"></span></div>
   <div class="beat">
     <div class="eyebrow">The network</div>
     <h2>Each city becomes a hub — talent flows in, content flows out.</h2>
     <p class="body">Los Angeles first, then New York, Austin, Miami, and San Francisco. Each room draws in the chefs, restaurants, creators, and audiences of its city — and turns those nights into thousands of hours of content for the whole network.</p>
   </div>
   <div class="beat">
-    <div class="flow">
-      <div class="flow-band in"><div class="flow-cap">What flows in</div><div class="chips"><span>Top chefs</span><span>Creators</span><span>Local restaurants</span><span>Celebrities</span><span>Live audiences</span></div></div>
-      <div class="flow-arrows"><span></span><span></span><span></span><span></span><span></span></div>
-      <div class="hubs">
-        <div class="hub"><div class="city">Los Angeles</div><div class="role">Culinary + experiential hub</div></div>
-        <div class="hub"><div class="city">New York</div><div class="role">Culinary + experiential hub</div></div>
-        <div class="hub"><div class="city">Austin</div><div class="role">Culinary + experiential hub</div></div>
-        <div class="hub"><div class="city">Miami</div><div class="role">Culinary + experiential hub</div></div>
-        <div class="hub"><div class="city">San Francisco</div><div class="role">Culinary + experiential hub</div></div>
+    <div class="netflow">
+      <div class="nf-cap nf-in">What flows in</div>
+      <div class="chips"><span>Top chefs</span><span>Creators</span><span>Local restaurants</span><span>Celebrities</span><span>Live audiences</span></div>
+      <div class="nf-stream" aria-hidden="true"><span class="d" style="left:33.4%;animation-delay:0.42s;animation-duration:2.91s"></span><span class="d" style="left:9.8%;animation-delay:1.5s;animation-duration:2.51s"></span><span class="d" style="left:8.5%;animation-delay:1.42s;animation-duration:2.05s"></span><span class="d" style="left:43.8%;animation-delay:0.2s;animation-duration:2.13s"></span><span class="d" style="left:42.9%;animation-delay:2.32s;animation-duration:2.17s"></span><span class="d" style="left:24.0%;animation-delay:1.76s;animation-duration:3.33s"></span><span class="d" style="left:57.2%;animation-delay:1.11s;animation-duration:3.37s"></span><span class="d" style="left:7.4%;animation-delay:2.4s;animation-duration:2.41s"></span><span class="d" style="left:16.6%;animation-delay:0.33s;animation-duration:2.43s"></span><span class="d" style="left:79.7%;animation-delay:0.51s;animation-duration:2.81s"></span><span class="d" style="left:63.1%;animation-delay:1.04s;animation-duration:2.77s"></span><span class="d" style="left:8.9%;animation-delay:0.17s;animation-duration:2.29s"></span><span class="d" style="left:67.0%;animation-delay:1.2s;animation-duration:2.44s"></span><span class="d" style="left:58.0%;animation-delay:1.27s;animation-duration:2.42s"></span><span class="d" style="left:77.7%;animation-delay:1.96s;animation-duration:2.34s"></span><span class="d" style="left:57.0%;animation-delay:1.47s;animation-duration:3.23s"></span><span class="d" style="left:71.6%;animation-delay:0.81s;animation-duration:3.37s"></span><span class="d" style="left:14.1%;animation-delay:1.17s;animation-duration:3.06s"></span><span class="d" style="left:17.3%;animation-delay:1.37s;animation-duration:2.05s"></span><span class="d" style="left:65.8%;animation-delay:2.14s;animation-duration:2.8s"></span></div>
+      <div class="nf-cities">
+        <div class="nf-city"><span class="liv"></span>Los Angeles</div>
+        <div class="nf-city"><span class="liv"></span>New York</div>
+        <div class="nf-city"><span class="liv"></span>Austin</div>
+        <div class="nf-city"><span class="liv"></span>Miami</div>
+        <div class="nf-city"><span class="liv"></span>San Francisco</div>
       </div>
-      <div class="flow-arrows out"><span></span><span></span><span></span><span></span><span></span></div>
-      <div class="flow-band out"><div class="flow-cap">What flows out</div><div class="bigout">Thousands of hours of content</div><div class="chips"><span>YouTube series</span><span>Shorts</span><span>Recipes</span><span>Brand films</span><span>Every platform</span></div></div>
+      <div class="nf-stream" aria-hidden="true"><span class="d" style="left:85.3%;animation-delay:0.88s;animation-duration:2.97s"></span><span class="d" style="left:58.9%;animation-delay:1.62s;animation-duration:2.64s"></span><span class="d" style="left:82.0%;animation-delay:2.65s;animation-duration:2.66s"></span><span class="d" style="left:65.4%;animation-delay:0.17s;animation-duration:2.98s"></span><span class="d" style="left:63.8%;animation-delay:2.78s;animation-duration:3.15s"></span><span class="d" style="left:29.8%;animation-delay:1.08s;animation-duration:2.94s"></span><span class="d" style="left:5.1%;animation-delay:1.29s;animation-duration:2.24s"></span><span class="d" style="left:14.0%;animation-delay:0.17s;animation-duration:3.08s"></span><span class="d" style="left:15.2%;animation-delay:0.69s;animation-duration:2.55s"></span><span class="d" style="left:84.9%;animation-delay:0.23s;animation-duration:2.63s"></span><span class="d" style="left:54.6%;animation-delay:2.47s;animation-duration:3.15s"></span><span class="d" style="left:84.2%;animation-delay:0.78s;animation-duration:2.58s"></span><span class="d" style="left:36.7%;animation-delay:2.48s;animation-duration:3.34s"></span><span class="d" style="left:17.2%;animation-delay:0.49s;animation-duration:2.32s"></span><span class="d" style="left:24.9%;animation-delay:1.36s;animation-duration:2.82s"></span><span class="d" style="left:27.7%;animation-delay:0.01s;animation-duration:2.59s"></span><span class="d" style="left:37.7%;animation-delay:1.59s;animation-duration:3.33s"></span><span class="d" style="left:67.9%;animation-delay:1.44s;animation-duration:2.86s"></span><span class="d" style="left:66.6%;animation-delay:0.15s;animation-duration:3.26s"></span><span class="d" style="left:76.3%;animation-delay:2.45s;animation-duration:3.12s"></span></div>
+      <div class="nf-cap nf-out">What flows out</div>
+      <div class="nf-bignum">Thousands of hours of content</div>
+      <div class="chips dark"><span>YouTube series</span><span>Shorts</span><span>Recipes</span><span>Brand films</span><span>Every platform</span></div>
     </div>
   </div>
   <div class="beat">
@@ -369,7 +422,7 @@
 
 <!-- 09 SCALE -->
 <section class="block" style="--acc:var(--neon)"><div class="wrap">
-  <div class="marker"><span class="num">09</span><span class="bar"></span></div>
+  <div class="marker"><span class="num">10</span><span class="bar"></span></div>
   <div class="beat">
     <div class="eyebrow">The portfolio at scale</div>
     <h2>Prove one room. Then build ten.</h2>
@@ -401,10 +454,11 @@
 
 <!-- 10 COMPETITIVE -->
 <section class="block" style="--acc:var(--neon)"><div class="wrap">
-  <div class="marker"><span class="num">10</span><span class="bar"></span></div>
+  <div class="marker"><span class="num">11</span><span class="bar"></span></div>
   <div class="beat">
     <div class="eyebrow">The industry today</div>
     <h2>Bigger, better, and far more profitable than anything out there.</h2>
+    <p class="beat" style="margin-top:1.1rem;"><span class="vpill">Apples to apples — every figure here is per single venue</span></p>
     <p class="body">A typical cooking class seats sixteen people who share burners and follow an instructor they've never heard of — or you pay $500-plus for a multi-week course at a culinary school. <span class="pop">The Commons is a different category:</span> personal stations, real talent, tablets and cameras at every seat, and a full bar.</p>
   </div>
   <p class="body soft beat" style="margin-bottom:.1rem;">Head to head — a single Commons room against the category’s best:</p>
@@ -420,7 +474,7 @@
 
 <!-- 11 BIG PICTURE -->
 <section class="block" style="--acc:var(--blue)"><div class="wrap">
-  <div class="marker"><span class="num">11</span><span class="bar"></span></div>
+  <div class="marker"><span class="num">12</span><span class="bar"></span></div>
   <div class="beat">
     <div class="eyebrow">The big picture</div>
     <h2>A media engine, fueled by <span class="pop">millions of can't-miss nights.</span></h2>
@@ -438,7 +492,7 @@
 
 <!-- 12 TEAM -->
 <section class="block" style="--acc:var(--neon)"><div class="wrap">
-  <div class="marker"><span class="num">12</span><span class="bar"></span></div>
+  <div class="marker"><span class="num">13</span><span class="bar"></span></div>
   <div class="beat">
     <div class="eyebrow">This is our jam</div>
     <h2>We've built a one-of-a-kind culinary venue before.</h2>
@@ -452,7 +506,7 @@
 
 <!-- 13 CLOSE -->
 <section class="screen bg-dark" style="--acc:var(--neon)">
-  <div class="marker"><span class="num">13</span><span class="bar"></span></div>
+  <div class="marker"><span class="num">14</span><span class="bar"></span></div>
   <div class="beat">
     <h2 class="big" style="max-width:18ch;">We're building the first one in Los Angeles.</h2>
     <p class="lede" style="margin-top:1.5rem;">If you want to see the room before anyone else does, let's talk.</p>
