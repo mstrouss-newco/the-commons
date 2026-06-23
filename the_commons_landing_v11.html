@@ -228,7 +228,21 @@
   .vpill{display:inline-block;background:var(--neon);color:#101010;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:7px 15px;border-radius:20px;}
 
   .twocol .cd p{margin-bottom:.7rem;} .twocol .cd p:last-child{margin-bottom:0;} .twocol .cd b{font-weight:800;}
-</style>
+
+    /* Page 07 — full-plane booking grid */
+    .fp-day { font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--mute); font-weight:700; text-align:center; padding-bottom:6px; }
+    .fp-time { font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--mute); font-weight:700; display:flex; align-items:center; padding-right:10px; white-space:nowrap; }
+    .fp-cell { height:30px; border-radius:5px; }
+    .fp-cell.fp-full { background:var(--blue); }
+    .fp-cell.fp-open { background:var(--neon); }
+    @media (max-width:640px){
+      .fp-time { font-size:.54rem; padding-right:6px; }
+      .fp-cell { height:22px; }
+    }
+  
+    /* Page 11 — per-unit banner inside comparison table */
+    .cmp-banner { grid-column:1 / -1; background:var(--neon); color:#101010; font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; text-align:center; padding:8px 1rem !important; border-bottom:none !important; border-radius:6px 6px 0 0; }
+  </style>
 </head>
 <body>
 
@@ -322,7 +336,7 @@
       <div class="ct">Chefs &amp; restaurateurs</div>
       <div class="cd">
         <p><b>Completely turnkey.</b> Show up and cook — no discounting your tables, no closing your dining room for an event. Your restaurant never skips a beat.</p>
-        <p><b>Get paid.</b> $700–$10,000 a night, from ticket sales alone.</p>
+        <p><b>Get paid.</b> $600–$10,000+ a night, from ticket sales alone — and the ceiling goes higher.</p>
         <p><b>Fill the room with future regulars.</b> A sold-out crowd that leaves wanting to book a table.</p>
         <p><b>Content you'd otherwise pay for.</b> We film your food, your story, your recipes — the brand content a PR or social team charges thousands a month to make. We pay you to create it, and it's yours to keep.</p>
       </div>
@@ -333,6 +347,7 @@
         <p><b>Meet your audience in real life.</b> The first place to turn an online following into a room full of people, around the food you all care about.</p>
         <p><b>A format built for content.</b> Every night is a shoot — footage, recipes, and moments produced for you.</p>
         <p><b>A home base, not a one-off.</b> A recurring, ownable way to be with your community offline.</p>
+        <p><b>Get paid.</b> The same $600–$10,000+ a night as our chefs, from ticket sales alone — and that's <em style="font-style:normal;background:var(--neon);padding:0 .15em;">before</em> we layer in brand activations, which can increase what you earn dramatically.</p>
       </div>
     </div>
   </div>
@@ -346,7 +361,26 @@
     <div class="eyebrow">A predictable, profitable model</div>
     <h2><span class="pop">We only fly the plane when it's full.</span></h2>
     <p class="body">Every class is booked weeks ahead and released in batches, so we only ever run a room that's already sold. Staffing and ingredients barely vary, <span class="pop">profit is engineered in,</span> and an under-sold night simply gets consolidated or rescheduled. Concepts rotate constantly, so there's always a fresh reason to come back.</p>
-    <p class="body soft">Forty-eight seats a class, twenty classes a week, with a blended ticket around $143.</p>
+    <p class="body soft">Forty-eight seats a class, twenty classes a week. Classes start at $69, with a blended ticket that averages around $143.</p>
+  </div>
+  <div class="beat in fp-wrap" style="margin-top:2.4rem;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;">
+      <div style="font-size:1.15rem;font-weight:800;color:var(--ink);">A week in one room</div>
+      <div class="vpill">Booked solid — by design</div>
+    </div>
+    <div class="fp-grid" style="display:grid;grid-template-columns:auto repeat(7,1fr);gap:6px;align-items:stretch;">
+      <div class="fp-corner" style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;display:flex;align-items:flex-end;padding-bottom:6px;"></div>
+      <div class="fp-day">Mon</div><div class="fp-day">Tue</div><div class="fp-day">Wed</div><div class="fp-day">Thu</div><div class="fp-day">Fri</div><div class="fp-day">Sat</div><div class="fp-day">Sun</div>
+      <div class="fp-time">Matinée</div>
+      <div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-open"></div>
+      <div class="fp-time">Evening</div>
+      <div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div>
+    </div>
+    <div style="display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1rem;align-items:center;">
+      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;background:var(--blue);display:inline-block;"></span>Sold out before we open the doors</span>
+      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;background:var(--neon);display:inline-block;"></span>Held back &mdash; released only when it fills</span>
+    </div>
+    <p class="body soft" style="margin-top:1.2rem;max-width:60ch;">Demand is read in advance and seats are released in batches, so a room only ever runs once it's already full. Nights that lag get consolidated or rescheduled — the plane never flies empty, and we have time to get every night right.</p>
   </div>
 </div></section>
 
@@ -458,12 +492,13 @@
   <div class="beat">
     <div class="eyebrow">The industry today</div>
     <h2>Bigger, better, and far more profitable than anything out there.</h2>
-    <p class="beat" style="margin-top:1.1rem;"><span class="vpill">Apples to apples — every figure here is per single venue</span></p>
+    <p class="beat" style="margin-top:1.1rem;"><span class="vpill">Every figure below is per single unit</span></p>
     <p class="body">A typical cooking class seats sixteen people who share burners and follow an instructor they've never heard of — or you pay $500-plus for a multi-week course at a culinary school. <span class="pop">The Commons is a different category:</span> personal stations, real talent, tablets and cameras at every seat, and a full bar.</p>
   </div>
   <p class="body soft beat" style="margin-bottom:.1rem;">Head to head — a single Commons room against the category’s best:</p>
   <div class="cmp beat">
-    <div class="h"></div><div class="h">Top competitor<span class="sub">per venue</span></div><div class="h us">The Commons<span class="sub">per room</span></div>
+    <div class="cmp-banner">All figures per single unit</div>
+    <div class="h"></div><div class="h">Top competitor<span class="sub">per unit</span></div><div class="h us">The Commons<span class="sub">per unit</span></div>
     <div class="lbl">Annual revenue, single unit</div><div>$1.67M</div><div class="us">$8.3M</div>
     <div class="lbl">Capacity per class</div><div>16</div><div class="us">48</div>
     <div class="lbl">Unit EBITDA</div><div>$365K</div><div class="us">$2.27M</div>
@@ -487,7 +522,7 @@
     <div class="stat"><div class="n">~$2.3M</div><div class="l">To build a unit</div></div>
     <div class="stat"><div class="n">~14 mo</div><div class="l">Payback</div></div>
   </div>
-  <p class="body soft beat">The plan: <span class="pop" style="color:var(--ink)">ten units over eight years — scaling to $90M+ in revenue and $30M+ in EBITDA, a $240M+ enterprise at an 8× multiple,</span> with the talent circulating between markets and the brands following them across the network.</p>
+  <p class="body soft beat">The plan: <span class="pop" style="color:var(--ink)">ten units over eight years — scaling to $90M+ in revenue and $30M+ in EBITDA,</span> with the talent circulating between markets and the brands following them across the network.</p>
 </div></section>
 
 <!-- 12 TEAM -->
