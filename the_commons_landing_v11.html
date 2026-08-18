@@ -229,15 +229,19 @@
 
   .twocol .cd p{margin-bottom:.7rem;} .twocol .cd p:last-child{margin-bottom:0;} .twocol .cd b{font-weight:800;}
 
-    /* Page 07 — full-plane booking grid */
+    /* Page 07 — weekly schedule grid */
     .fp-day { font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--mute); font-weight:700; text-align:center; padding-bottom:6px; }
-    .fp-time { font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--mute); font-weight:700; display:flex; align-items:center; padding-right:10px; white-space:nowrap; }
-    .fp-cell { height:30px; border-radius:5px; }
-    .fp-cell.fp-full { background:var(--blue); }
-    .fp-cell.fp-open { background:var(--neon); }
+    .fp-day.fp-we { color:var(--ink); }
+    .fp-time { font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--body); font-weight:700; display:flex; align-items:center; padding-right:12px; white-space:nowrap; }
+    .fp-cell { height:52px; border-radius:8px; display:flex; align-items:center; justify-content:center; text-align:center; line-height:1.2; padding:0 5px; font-size:.56rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
+    .fp-cell.fp-full { background:var(--blue); color:#fff; }
+    .fp-cell.fp-pri { background:var(--neon); color:#101010; }
+    .fp-cell.fp-dry { background:#F4F3EF; color:var(--body); border:1px solid var(--rule); }
+    .fp-cell.fp-open { border:1.5px dashed var(--stone); color:var(--stone); }
+    .fp-sub { font-size:.66rem; letter-spacing:.11em; text-transform:uppercase; color:var(--mute); font-weight:700; margin:-.5rem 0 1rem; }
     @media (max-width:640px){
-      .fp-time { font-size:.54rem; padding-right:6px; }
-      .fp-cell { height:22px; }
+      .fp-time { font-size:.5rem; padding-right:6px; }
+      .fp-cell { height:40px; font-size:.44rem; letter-spacing:.03em; padding:0 2px; }
     }
   
     /* Page 11 — per-unit banner inside comparison table */
@@ -366,19 +370,26 @@
   <div class="beat in fp-wrap" style="margin-top:2.4rem;">
     <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;">
       <div style="font-size:1.15rem;font-weight:800;color:var(--ink);">A week in one room</div>
-      <div class="vpill">Booked solid — by design</div>
+      <div class="vpill">Released as demand supports</div>
     </div>
+    <div class="fp-sub">One kitchen, seven days, four classes a day</div>
     <div class="fp-grid" style="display:grid;grid-template-columns:auto repeat(7,1fr);gap:6px;align-items:stretch;">
       <div class="fp-corner" style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;display:flex;align-items:flex-end;padding-bottom:6px;"></div>
-      <div class="fp-day">Mon</div><div class="fp-day">Tue</div><div class="fp-day">Wed</div><div class="fp-day">Thu</div><div class="fp-day">Fri</div><div class="fp-day">Sat</div><div class="fp-day">Sun</div>
-      <div class="fp-time">Matinée</div>
-      <div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-open"></div>
+      <div class="fp-day">Mon</div><div class="fp-day">Tue</div><div class="fp-day">Wed</div><div class="fp-day">Thu</div><div class="fp-day">Fri</div><div class="fp-day fp-we">Sat</div><div class="fp-day fp-we">Sun</div>
+      <div class="fp-time">Morning</div>
+      <div class="fp-cell fp-dry">Dry run</div><div class="fp-cell fp-open">Open</div><div class="fp-cell fp-open">Open</div><div class="fp-cell fp-dry">Dry run</div><div class="fp-cell fp-open">Open</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div>
+      <div class="fp-time">Midday</div>
+      <div class="fp-cell fp-pri">Private class</div><div class="fp-cell fp-pri">Private class</div><div class="fp-cell fp-dry">Dry run</div><div class="fp-cell fp-pri">Private class</div><div class="fp-cell fp-dry">Dry run</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div>
+      <div class="fp-time">Early evening</div>
+      <div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div>
       <div class="fp-time">Evening</div>
-      <div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div><div class="fp-cell fp-full"></div>
+      <div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div><div class="fp-cell fp-full">Class</div>
     </div>
-    <div style="display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1rem;align-items:center;">
-      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;background:var(--blue);display:inline-block;"></span>Sold out before we open the doors</span>
-      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;background:var(--neon);display:inline-block;"></span>Held back &mdash; released only when it fills</span>
+    <div style="display:flex;gap:1.05rem;flex-wrap:wrap;margin-top:1rem;align-items:center;">
+      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;background:var(--blue);display:inline-block;"></span>Class &mdash; 48 seats, opened for sale in batches</span>
+      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;background:var(--neon);display:inline-block;"></span>Private class &mdash; booked as a whole room</span>
+      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;background:#F4F3EF;border:1px solid var(--rule);display:inline-block;"></span>Dry run &mdash; new concepts tested</span>
+      <span style="display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;color:var(--body);font-weight:600;"><span style="width:14px;height:14px;border-radius:4px;border:1.5px dashed var(--stone);display:inline-block;"></span>Open &mdash; room still to sell into</span>
     </div>
     <p class="body soft" style="margin-top:1.2rem;max-width:60ch;">Demand is read in advance and seats are released in batches, so a room only ever runs once it's already full. Nights that lag get consolidated or rescheduled — the plane never flies empty, and we have time to get every night right.</p>
   </div>
