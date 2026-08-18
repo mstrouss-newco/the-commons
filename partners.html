@@ -246,7 +246,19 @@
   
     /* Page 11 — per-unit banner inside comparison table */
     .cmp-banner { grid-column:1 / -1; background:var(--neon); color:#101010; font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; text-align:center; padding:8px 1rem !important; border-bottom:none !important; border-radius:6px 6px 0 0; }
-  </style>
+  
+  .roomset{margin-top:3.2rem;}
+  .roomset .shot{position:relative;border-radius:10px;overflow:hidden;background:#1a1a1a;}
+  .roomset .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .roomset .hero{aspect-ratio:16/9;}
+  .roomset .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  .roomset .trio .shot{aspect-ratio:4/3;}
+  .roomset .lab{margin-top:.55rem;}
+  .roomset .lab b{display:block;font-size:.78rem;font-weight:800;color:var(--ink);}
+  .roomset .lab span{display:block;font-size:.74rem;color:var(--mute);margin-top:2px;line-height:1.35;}
+  .roomset .credit{margin-top:1.6rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;}
+  @media(max-width:720px){.roomset .trio{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
@@ -309,6 +321,26 @@
     <div class="row"><div class="k">A help button</div><div class="v">Quietly signal a team member — for a technique, a clean utensil, or another cocktail.</div></div>
     <div class="row"><div class="k">Comfortable seating</div><div class="v">Sit back and enjoy the multi-course meal you just made, paired with wine or cocktails.</div></div>
     <div class="row"><div class="k">A full staff</div><div class="v">A world-class experience start to finish, from the first drink to the last plate.</div></div>
+  </div>
+
+  <div class="roomset beat">
+    <div class="shot hero"><img src="img/room-hero.jpg" alt="The Commons room, full floor" loading="lazy"></div>
+    <div class="lab"><b>The room</b><span>One floor, twenty-plus stations, a chef's counter and a live camera crew — all at once.</span></div>
+    <div class="trio">
+      <div>
+        <div class="shot"><img src="img/room-overhead.jpg" alt="Overhead view of the floor plan" loading="lazy"></div>
+        <div class="lab"><b>The floor plan</b><span>Every station sightlined to the chef. No bad seat in the house.</span></div>
+      </div>
+      <div>
+        <div class="shot"><img src="img/room-station.jpg" alt="A single guest station" loading="lazy"></div>
+        <div class="lab"><b>Your station</b><span>Induction, real tools, a tablet at eye level, everything in reach.</span></div>
+      </div>
+      <div>
+        <div class="shot"><img src="img/room-crew.jpg" alt="A night being filmed in the room" loading="lazy"></div>
+        <div class="lab"><b>Always rolling</b><span>Every night is also a shoot day. The content makes itself.</span></div>
+      </div>
+    </div>
+    <div class="credit">Design renderings — Los Angeles flagship</div>
   </div>
 </div></section>
 
