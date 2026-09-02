@@ -258,6 +258,19 @@
   .roomset .lab span{display:block;font-size:.74rem;color:var(--mute);margin-top:2px;line-height:1.35;}
   .roomset .credit{margin-top:1.6rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;}
   @media(max-width:720px){.roomset .trio{grid-template-columns:1fr;}}
+
+  .roomset .shot{cursor:zoom-in;}
+  .lbx{position:fixed;inset:0;z-index:99;background:rgba(10,12,18,.94);display:none;align-items:center;justify-content:center;padding:5vh 5vw;cursor:zoom-out;}
+  .lbx.on{display:flex;}
+  .lbx figure{margin:0;max-width:100%;display:flex;flex-direction:column;align-items:center;gap:.9rem;}
+  .lbx img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:8px;display:block;}
+  .lbx figcaption{color:#cfcbc2;font-size:.8rem;text-align:center;max-width:60ch;line-height:1.4;}
+  .lbx figcaption b{display:block;color:#fff;font-size:.92rem;font-weight:800;margin-bottom:.2rem;}
+  .lbx button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;opacity:.65;padding:10px 16px;line-height:1;}
+  .lbx button:hover{opacity:1;}
+  .lbx .x{top:14px;right:18px;font-size:1.9rem;}
+  .lbx .prev,.lbx .next{top:50%;transform:translateY(-50%);font-size:2.4rem;}
+  .lbx .prev{left:4px;} .lbx .next{right:4px;}
 </style>
 </head>
 <body>
@@ -337,7 +350,7 @@
       </div>
       <div>
         <div class="shot"><img src="img/room-crew.jpg" alt="A night being filmed in the room" loading="lazy"></div>
-        <div class="lab"><b>Always rolling</b><span>Every night is also a shoot day. The content makes itself.</span></div>
+        <div class="lab"><b>Camera-ready by design</b><span>We film one class per series without changing a thing about the night.</span></div>
       </div>
     </div>
     <div class="credit">Design renderings — Los Angeles flagship</div>
@@ -828,6 +841,32 @@
 <script>
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.18});
   document.querySelectorAll('.beat,#bar').forEach(el=>io.observe(el));
+</script>
+
+<div class="lbx" id="lbx" aria-hidden="true">
+  <button class="x" aria-label="Close">&times;</button>
+  <button class="prev" aria-label="Previous">&#8249;</button>
+  <button class="next" aria-label="Next">&#8250;</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('lbx'); if(!box) return;
+  var img=box.querySelector('img'), cap=box.querySelector('figcaption');
+  var shots=[].slice.call(document.querySelectorAll('.roomset .shot'));
+  var i=0;
+  function labFor(s){ var n=s.nextElementSibling; if(n&&n.className.indexOf('lab')>-1) return n; return s.parentElement.querySelector('.lab'); }
+  function open(n){ i=(n+shots.length)%shots.length; var s=shots[i], im=s.querySelector('img'), l=labFor(s);
+    img.src=im.getAttribute('src'); img.alt=im.alt||''; cap.innerHTML=l?l.innerHTML:'';
+    box.classList.add('on'); box.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function close(){ box.classList.remove('on'); box.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  shots.forEach(function(s,n){ s.addEventListener('click', function(){ open(n); }); });
+  box.addEventListener('click', function(e){ if(e.target===box||e.target.className==='x') close(); });
+  box.querySelector('.prev').addEventListener('click', function(e){ e.stopPropagation(); open(i-1); });
+  box.querySelector('.next').addEventListener('click', function(e){ e.stopPropagation(); open(i+1); });
+  document.addEventListener('keydown', function(e){ if(!box.classList.contains('on')) return;
+    if(e.key==='Escape') close(); else if(e.key==='ArrowLeft') open(i-1); else if(e.key==='ArrowRight') open(i+1); });
+})();
 </script>
 </body>
 </html>
