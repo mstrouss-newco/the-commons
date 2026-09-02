@@ -25,7 +25,7 @@
 
   .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:1.4rem;font-weight:700;}
 
-  .beat{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease;}
+  .beat{opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s ease;}
   .beat.in{opacity:1;transform:none;}
   .pop{font-weight:800;}
   .hl{background:linear-gradient(transparent 55%, var(--neon) 55%);padding:0 .08em;}
@@ -65,6 +65,16 @@
   .stats{display:flex;flex-wrap:wrap;gap:2.4rem 4rem;margin:2.6rem 0;}
   .stat .n{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1;font-weight:800;letter-spacing:-.02em;}
   .stat .l{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);margin-top:.6rem;max-width:18ch;font-weight:600;}
+
+  /* six-stat row: centered 2x3 on mobile, 3x2 on desktop, never an orphan */
+  .stats.stats-6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:2.2rem 1.6rem;margin:2.8rem auto;max-width:820px;justify-items:center;text-align:center;}
+  .stats.stats-6 .stat{max-width:20ch;}
+  .stats.stats-6 .stat .l{max-width:none;min-height:2.7em;margin-left:auto;margin-right:auto;}
+  @media(min-width:720px){
+    .stats.stats-6{grid-template-columns:repeat(3,minmax(0,1fr));gap:3rem 2.4rem;}
+    .stats.stats-6 .stat .l{min-height:1.5em;}
+  }
 
   hr.rule{height:1px;background:var(--rule);border:0;margin:2.4rem 0;}
 
@@ -271,6 +281,31 @@
   .lbx .x{top:14px;right:18px;font-size:1.9rem;}
   .lbx .prev,.lbx .next{top:50%;transform:translateY(-50%);font-size:2.4rem;}
   .lbx .prev{left:4px;} .lbx .next{right:4px;}
+
+  /* ---- count-up + hover lift (alive v2) ---- */
+  .cu{display:inline-block;white-space:nowrap;}
+  .cu-suf{opacity:1;transition:opacity .35s ease;}
+  .cu.cu-armed .cu-suf{opacity:0;}
+  .cu.cu-land{animation:cuSettle .34s cubic-bezier(.2,.7,.3,1) both;}
+  .cu.cu-land .cu-suf{opacity:1;}
+  @keyframes cuSettle{0%{transform:scale(1);}45%{transform:scale(1.03);}100%{transform:scale(1);}}
+
+  @media (hover:hover) and (pointer:fine){
+    .pcard,.twocol .col,.team>div{
+      transition:transform .25s ease,box-shadow .25s ease;will-change:transform;}
+    .pcard:hover,.twocol .col:hover,.team>div:hover{
+      transform:translateY(-2px);box-shadow:0 12px 26px rgba(18,24,38,.10);}
+    .bg-dark .team>div:hover{box-shadow:0 12px 26px rgba(0,0,0,.35);}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .beat{opacity:1!important;transform:none!important;transition:none!important;}
+    .cover-bar{opacity:1!important;transition:none!important;}
+    .cu.cu-land{animation:none;}
+    .cu.cu-armed .cu-suf{opacity:1;}
+    .pcard,.twocol .col,.team>div{transition:none;}
+    .pcard:hover,.twocol .col:hover,.team>div:hover{transform:none;}
+  }
 </style>
 </head>
 <body>
@@ -294,13 +329,13 @@
   <div class="beat">
     <p class="body">Most nights were led by the city's top culinary talent — the chefs behind the restaurants people were already lined up to get into. But the magic showed up when we brought in national names who simply had <span class="pop">a story to tell through food:</span> a healthy-cooking class with Biz Markie, a night with Top Chef winner — and now host — Kristen Kish, dishes from José Andrés' Jaleo, and a molecular-gastronomy night led by the chef behind his minibar.</p>
   </div>
-  <div class="beat stats">
-    <div class="stat"><div class="n">$10M+</div><div class="l">In sales</div></div>
-    <div class="stat"><div class="n">150K</div><div class="l">Guests per year</div></div>
-    <div class="stat"><div class="n">80</div><div class="l">Events per week</div></div>
-    <div class="stat"><div class="n">300+</div><div class="l">Unique concepts</div></div>
-    <div class="stat"><div class="n">200+</div><div class="l">Premium partners</div></div>
-    <div class="stat"><div class="n">93</div><div class="l">Net Promoter Score</div></div>
+  <div class="beat stats stats-6">
+    <div class="stat"><div class="n"><span class="cu" data-count="10" data-prefix="$" data-suffix="M+">$10M+</span></div><div class="l">In sales</div></div>
+    <div class="stat"><div class="n"><span class="cu" data-count="150" data-suffix="K">150K</span></div><div class="l">Guests per year</div></div>
+    <div class="stat"><div class="n"><span class="cu" data-count="80">80</span></div><div class="l">Events per week</div></div>
+    <div class="stat"><div class="n"><span class="cu" data-count="300" data-suffix="+">300+</span></div><div class="l">Unique concepts</div></div>
+    <div class="stat"><div class="n"><span class="cu" data-count="200" data-suffix="+">200+</span></div><div class="l">Premium partners</div></div>
+    <div class="stat"><div class="n"><span class="cu" data-count="93">93</span></div><div class="l">Net Promoter Score</div></div>
   </div>
   <div class="beat">
     <p class="body soft">It was voted the best cooking class in DC. Then LivingSocial pulled back, and in 2014, 918 F Street closed.</p>
@@ -621,7 +656,7 @@
 }
 </style>
 <section class="block" style="--acc:var(--blue)">
-<div class="eng9-root">
+<div class="eng9-root beat">
   <div class="eng9-eyebrow">Slide 09 · The Engine</div>
   <h2 class="eng9-head">A flywheel that pays for itself, then <em>compounds</em>.</h2>
   <p class="eng9-sub">Talent and a paying audience spin one room into sold-out nights. The nights become content, the content grows the library, and the library pulls in the next wave of talent and guests. Each turn is bigger than the last.</p>
@@ -771,7 +806,7 @@
     </div>
   </div>
   <div class="beat">
-    <p class="big" style="margin-top:1.6rem;max-width:26ch;">One room becomes a network. <span style="color:var(--blue)">$3M to $91M in revenue.</span></p>
+    <p class="big" style="margin-top:1.6rem;max-width:26ch;">One room becomes a network. <span style="color:var(--blue)">$3M to <span class="cu" data-count="91" data-prefix="$" data-suffix="M">$91M</span> in revenue.</span></p>
     <p class="body" style="margin-top:1rem;max-width:62ch;">Class revenue is the profitable foundation — every room pays for itself on tickets alone. Brand and content stack on top: higher-margin upside that grows with the network's audience, not its rent.</p>
   </div>
 </div></section>
@@ -839,8 +874,55 @@
 </section>
 
 <script>
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.18});
-  document.querySelectorAll('.beat,#bar').forEach(el=>io.observe(el));
+(function(){
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- count-up setup: split each number into prefix / value / suffix --- */
+  var counters = [].slice.call(document.querySelectorAll('.cu'));
+  counters.forEach(function(el){
+    var pre = el.getAttribute('data-prefix') || '';
+    var suf = el.getAttribute('data-suffix') || '';
+    var end = parseFloat(el.getAttribute('data-count'));
+    el.dataset.end = end;
+    el.innerHTML = '<span class="cu-pre"></span><span class="cu-val"></span><span class="cu-suf"></span>';
+    el.querySelector('.cu-pre').textContent = pre;
+    el.querySelector('.cu-suf').textContent = suf;
+    el.querySelector('.cu-val').textContent = calm ? end.toLocaleString() : '0';
+    if (!calm) el.classList.add('cu-armed');
+  });
+
+  function run(el){
+    var end = parseFloat(el.dataset.end), val = el.querySelector('.cu-val');
+    var dur = 1200, t0 = null;
+    function frame(t){
+      if (t0 === null) t0 = t;
+      var p = Math.min((t - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      val.textContent = Math.round(end * eased).toLocaleString();
+      if (p < 1) { requestAnimationFrame(frame); }
+      else { val.textContent = end.toLocaleString(); el.classList.remove('cu-armed'); el.classList.add('cu-land'); }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* --- one shared observer for reveals and counters --- */
+  if (!('IntersectionObserver' in window) || calm){
+    document.querySelectorAll('.beat,#bar').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      obs.unobserve(el);
+      if (el.classList.contains('cu')) { run(el); }
+      else { el.classList.add('in'); }
+    });
+  }, {threshold: 0.18, rootMargin: '0px 0px -5% 0px'});
+
+  document.querySelectorAll('.beat,#bar').forEach(function(el){ io.observe(el); });
+  counters.forEach(function(el){ io.observe(el); });
+})();
 </script>
 
 <div class="lbx" id="lbx" aria-hidden="true">
