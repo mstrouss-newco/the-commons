@@ -574,6 +574,36 @@
 .eng9-root .eng9-cx{font-size:.62rem;font-weight:700;color:var(--mute);letter-spacing:-.01em}
 .eng9-root .eng9-cx.live{color:var(--ink)}
 .eng9-root .eng9-comphint{font-size:.66rem;color:var(--mute);font-weight:500;line-height:1.42;margin-top:9px}
+
+/* library */
+.eng9-root .eng9-lib{margin-top:clamp(18px,2.5vw,26px);border:1px solid var(--rule);border-radius:12px;background:#fff;padding:clamp(14px,2vw,20px) clamp(16px,2.5vw,24px) 12px;position:relative}
+.eng9-root .eng9-libhead{display:flex;justify-content:space-between;gap:10px;margin-bottom:12px}
+.eng9-root .eng9-libwhere{color:var(--blue)}
+.eng9-root .eng9-fun{display:grid;grid-template-columns:1fr 30px 150px;align-items:center;gap:14px;padding:12px 14px;background:#F6F5F0;border-radius:10px;margin-bottom:14px}
+.eng9-root .eng9-funlab{display:block;font-size:.58rem;letter-spacing:.14em;font-weight:700;color:var(--mute);text-transform:uppercase;margin-bottom:8px}
+.eng9-root .eng9-dots{display:flex;gap:5px;flex-wrap:wrap}
+.eng9-root .eng9-dots i{width:20px;height:13px;border-radius:3px;background:#dcdad2;transition:all .3s}
+.eng9-root .eng9-dots i.on{background:var(--blue)}
+.eng9-root .eng9-dots i.pick{background:var(--neon);box-shadow:0 0 0 2px var(--ink);transform:scale(1.15)}
+.eng9-root .eng9-funarrow{font-size:1.2rem;color:var(--mute);text-align:center}
+.eng9-root .eng9-ep{position:relative;aspect-ratio:16/9;border-radius:7px;overflow:hidden;background:linear-gradient(135deg,#2b3aa8,#0E1430);box-shadow:0 8px 20px rgba(18,24,38,.18)}
+.eng9-root .eng9-ep img,.eng9-root .eng9-v img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.eng9-root .eng9-ep::after,.eng9-root .eng9-v.on::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0) 55%)}
+.eng9-root .eng9-du{position:absolute;right:5px;bottom:5px;font-size:.6rem;font-weight:700;color:#fff;background:rgba(0,0,0,.7);padding:2px 5px;border-radius:3px;z-index:2}
+.eng9-root .eng9-sr{position:absolute;left:6px;top:6px;font-size:.5rem;font-weight:800;letter-spacing:.08em;padding:2px 5px;border:1px solid;border-radius:3px;background:rgba(0,0,0,.45);z-index:2}
+.eng9-root .eng9-tt{position:absolute;left:7px;bottom:6px;right:40px;font-size:.62rem;font-weight:800;color:#fff;line-height:1.15;z-index:2}
+.eng9-root .eng9-shelf{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.eng9-root .eng9-v{position:relative;aspect-ratio:16/9;border-radius:6px;background:#F1EFE8;border:1px dashed #dedbd0;overflow:hidden;transition:transform .3s}
+.eng9-root .eng9-v.on{border:0;background:#0E1430}
+.eng9-root .eng9-v.new{transform:scale(1.06);box-shadow:0 0 0 2px var(--neon)}
+.eng9-root .eng9-v .eng9-du{font-size:.5rem;padding:1px 4px}
+.eng9-root .eng9-v .eng9-sr{font-size:.44rem;padding:1px 4px}
+.eng9-root .eng9-libstats{display:flex;justify-content:space-between;gap:16px;margin-top:16px;flex-wrap:wrap}
+.eng9-root .eng9-statr{text-align:right}
+.eng9-root .eng9-lime{color:#7a8a00}
+.eng9-root .eng9-replay{margin-left:8px;font-size:.55rem;color:var(--stone);cursor:pointer;text-decoration:underline;text-transform:none;letter-spacing:0;font-weight:500}
+@media(max-width:820px){.eng9-root .eng9-shelf{grid-template-columns:repeat(6,1fr)}.eng9-root .eng9-fun{grid-template-columns:1fr 24px 120px}}
+@media(max-width:480px){.eng9-root .eng9-shelf{grid-template-columns:repeat(4,1fr)}.eng9-root .eng9-fun{grid-template-columns:1fr;gap:10px}.eng9-root .eng9-funarrow{display:none}.eng9-root .eng9-ep{max-width:160px}}
 /* payoff */
 .eng9-root .eng9-payoff{display:flex;align-items:center;gap:clamp(14px,3vw,30px);flex-wrap:wrap;
   margin-top:clamp(22px,3vw,34px);padding:clamp(15px,2vw,20px) clamp(18px,2.5vw,24px);
@@ -671,50 +701,31 @@
     <!-- RAIL -->
     <div class="eng9-rail">
       <div>
-        <div class="eng9-railhead"><b>Why it compounds</b></div>
-        <p class="eng9-railbody" style="margin-top:8px">The room is <strong>profitable on tickets alone</strong>, so every turn of the wheel funds itself. Content and brand revenue ride on top as pure upside.</p>
+        <div class="eng9-railhead"><b>A series is a run of sold-out classes. One gets filmed.</b></div>
+        <p class="eng9-railbody" style="margin-top:8px">We film the best class from every series without changing a thing about the night. That episode goes on the shelf for good: <strong>at least 120 hours a year, from one room</strong>. Every episode and every format is owned outright.</p>
       </div>
-
       <div class="eng9-stack">
-        <div class="eng9-layer eng9-proven">
-          <span class="eng9-llab">Proven · funds the wheel</span>
-          <span class="eng9-lval">Tickets cover the night</span>
-        </div>
         <div class="eng9-layer eng9-upside">
           <span class="eng9-llab">Upside · compounding</span>
           <span class="eng9-lval">Content is pure profit</span>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="eng9-comp">
-        <div class="eng9-comphead">
-          <span class="eng9-complab">Cumulative hours across the network</span>
-        </div>
-        <div class="eng9-chart">
-          <svg viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
-            <defs><linearGradient id="eng9grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#4169FF" stop-opacity=".2"></stop>
-              <stop offset="1" stop-color="#4169FF" stop-opacity="0"></stop>
-            </linearGradient></defs>
-            <path class="eng9-carea" d="M8 83 C 40 82.2, 62 80.6, 84 79 C 112 76.8, 140 74.2, 160 70 C 190 63.6, 215 58, 236 50 C 264 39, 292 26, 312 10 L312 86 L8 86 Z"></path>
-            <path class="eng9-cline" d="M8 83 C 40 82.2, 62 80.6, 84 79 C 112 76.8, 140 74.2, 160 70 C 190 63.6, 215 58, 236 50 C 264 39, 292 26, 312 10" pathLength="100"></path>
-            <circle class="eng9-chalo" cx="312" cy="10" r="5.4"></circle>
-            <circle class="eng9-cdot live d1" cx="8" cy="83" r="4.6"></circle>
-            <circle class="eng9-cdot d2" cx="84" cy="79" r="4.6"></circle>
-            <circle class="eng9-cdot d3" cx="160" cy="70" r="4.6"></circle>
-            <circle class="eng9-cdot d4" cx="236" cy="50" r="4.6"></circle>
-            <circle class="eng9-cdot last d5" cx="312" cy="10" r="5.4"></circle>
-          </svg>
-        </div>
-        <div class="eng9-cxrow">
-          <span class="eng9-cx live">LA</span>
-          <span class="eng9-cx">New York</span>
-          <span class="eng9-cx">Austin</span>
-          <span class="eng9-cx">Miami</span>
-          <span class="eng9-cx">SF</span>
-        </div>
-        <p class="eng9-comphint">Each room adds hundreds of hours a year. Ten rooms compound into thousands.</p>
-      </div>
+  <!-- LIBRARY -->
+  <div class="eng9-lib" id="eng9lib">
+    <div class="eng9-libhead"><span class="eng9-complab">The library <span class="eng9-replay" id="eng9replay">replay</span></span><span class="eng9-complab eng9-libwhere" id="eng9where">Now filming</span></div>
+    <div class="eng9-fun">
+      <div><span class="eng9-funlab" id="eng9serlab">Series · 6 classes</span><div class="eng9-dots" id="eng9dots"></div></div>
+      <span class="eng9-funarrow">→</span>
+      <div class="eng9-ep" id="eng9ep"></div>
+    </div>
+    <div class="eng9-shelf" id="eng9shelf"></div>
+    <div class="eng9-libstats">
+      <div class="eng9-stat"><span class="eng9-statbig" id="eng9epn">0</span><span class="eng9-statlab">Episodes on the shelf</span></div>
+      <div class="eng9-stat"><span class="eng9-statbig eng9-lime" id="eng9hrn">0 hrs</span><span class="eng9-statlab">In the library</span></div>
+      <div class="eng9-stat eng9-statr"><span class="eng9-statbig" id="eng9fm" style="color:var(--blue)">0</span><span class="eng9-statlab">Formats owned</span></div>
     </div>
   </div>
 
@@ -737,6 +748,29 @@
     <span class="eng9-pill">Already in the black</span>
   </div>
 </div>
+<script>
+(function(){
+var items=[{"img":"https://images.unsplash.com/photo-1615937662601-4724eceda00f?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"CLASS","col":"#C6FF00","dur":"13:00","t":"KNIFE SKILLS","sub":"EVERY CUT, ONE HOUR"},{"img":"https://images.unsplash.com/photo-1447279506476-3faec8071eee?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"CLASS","col":"#C6FF00","dur":"14:14","t":"FRESH PASTA","sub":"FLOUR, EGGS, NOTHING ELSE"},{"img":"https://images.unsplash.com/photo-1680759290803-d954bec8ce41?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"CLASS","col":"#C6FF00","dur":"12:27","t":"MASA","sub":"FROM RAW CORN, ON THE COMAL"},{"img":"https://images.unsplash.com/photo-1783698906241-cc9069b71d7f?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"CLASS","col":"#C6FF00","dur":"8:41","t":"CAST IRON STEAK","sub":"ONE PAN, ONE METHOD"},{"img":"https://images.unsplash.com/photo-1486887396153-fa416526c108?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"CLASS","col":"#C6FF00","dur":"24:33","t":"BREAD DAY","sub":"START TO LOAF"},{"img":"https://images.unsplash.com/photo-1592837613828-4b65deb44f15?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"COOKING WITH MOM","col":"#FF9BB0","dur":"37:34","t":"HER RECIPE","sub":"SHE NEVER WROTE IT DOWN"},{"img":"https://images.unsplash.com/photo-1755742185327-2dcea8cd96a8?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"COOKING WITH MOM","col":"#FF9BB0","dur":"41:12","t":"SUNDAY POT","sub":"FORTY YEARS RUNNING"},{"img":"https://images.unsplash.com/photo-1773820842924-fa15af6d8cf1?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"COOKING WITH MOM","col":"#FF9BB0","dur":"35:11","t":"HER KITCHEN","sub":"WHERE ALL OF IT STARTED"},{"img":"https://images.unsplash.com/photo-1606787364406-a3cdf06c6d0c?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"COOKING WITH MOM","col":"#FF9BB0","dur":"38:08","t":"SHE CORRECTS","sub":"HIM THE ENTIRE TIME"},{"img":"https://images.unsplash.com/photo-1581954548218-415cd6ee5f4d?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"COOKING WITH MOM","col":"#FF9BB0","dur":"30:14","t":"SUNDAY TABLE","sub":"EVERYONE SHOWS UP"},{"img":"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"STAND-UP KITCHEN","col":"#FF6B3D","dur":"48:12","t":"OPENING SET","sub":"BEFORE ANYONE EATS"},{"img":"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"STAND-UP KITCHEN","col":"#FF6B3D","dur":"41:28","t":"THE ROOM","sub":"FORTY EIGHT SEATS, SOLD OUT"},{"img":"https://images.unsplash.com/photo-1618861297248-3438b3d9aae9?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"STAND-UP KITCHEN","col":"#FF6B3D","dur":"44:05","t":"BEFORE DOORS","sub":"THE ROOM AT SIX"},{"img":"https://images.unsplash.com/photo-1767755255170-c79c863f1849?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"STAND-UP KITCHEN","col":"#FF6B3D","dur":"45:15","t":"THE HECKLE","sub":"FROM THE FRONT ROW"},{"img":"https://images.unsplash.com/photo-1623438744990-f47414813a29?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"STAND-UP KITCHEN","col":"#FF6B3D","dur":"38:48","t":"SOLD OUT","sub":"THREE NIGHTS RUNNING"},{"img":"https://images.unsplash.com/photo-1519861155730-0b5fbf0dd889?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"THE REGULARS","col":"#5AA9FF","dur":"12:27","t":"AFTER MIDNIGHT","sub":"THE TRUCK ON THE CORNER"},{"img":"https://images.unsplash.com/photo-1612208176815-e132bcf971b0?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"THE REGULARS","col":"#5AA9FF","dur":"35:48","t":"THE LINE","sub":"STARTS AT SEVEN"},{"img":"https://images.unsplash.com/photo-1687892253319-beea8bc81d22?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"THE REGULARS","col":"#5AA9FF","dur":"7:21","t":"TWENTY YEARS","sub":"SAME PARKING LOT"},{"img":"https://images.unsplash.com/photo-1589778314823-d1c2bde0a31b?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"THE REGULARS","col":"#5AA9FF","dur":"19:33","t":"THE GRILL","sub":"NEVER GOES OUT"},{"img":"https://images.unsplash.com/photo-1621334721541-370a13974de8?w=320&h=180&fit=crop&crop=entropy&q=70","ser":"THE REGULARS","col":"#5AA9FF","dur":"9:12","t":"ONE DISH","sub":"HIS WHOLE LIFE"}];
+var shelf=document.getElementById('eng9shelf'),dots=document.getElementById('eng9dots');if(!shelf)return;
+var N=24;for(var i=0;i<N;i++){var d=document.createElement('div');d.className='eng9-v';shelf.appendChild(d)}
+function thumb(o,big){return '<img src="'+o.img+'" alt="" loading="lazy"><span class="eng9-sr" style="color:'+o.col+';border-color:'+o.col+'">'+o.ser+'</span>'+(big?'<span class="eng9-tt">'+o.t+'<br>'+o.sub+'</span>':'')+'<span class="eng9-du">'+o.dur+'</span>'}
+var timers=[],ran=false;
+function run(){timers.forEach(clearTimeout);timers=[];
+ Array.prototype.forEach.call(shelf.children,function(e){e.className='eng9-v';e.innerHTML=''});
+ var eps=0,mins=0,fm={},fmn=0,t=0,sizes=[6,4,12,4,6,3,6,4,6,12,4,6,6,4,6,3,6,4,12,4,6,6,4,6];
+ sizes.forEach(function(n,si){var o=items[si%items.length],pick=Math.floor(n/2);
+  timers.push(setTimeout(function(){document.getElementById('eng9where').textContent='Now filming · '+o.ser;document.getElementById('eng9serlab').textContent='Series · '+n+' classes';dots.innerHTML='';for(var i=0;i<n;i++)dots.appendChild(document.createElement('i'));document.getElementById('eng9ep').innerHTML=''},t));
+  for(var i=0;i<n;i++){(function(i){timers.push(setTimeout(function(){dots.children[i].classList.add('on');if(i===pick){dots.children[i].classList.add('pick');document.getElementById('eng9ep').innerHTML=thumb(o,true)}},t+i*45))})(i)}
+  t+=n*45+380;
+  timers.push(setTimeout(function(){var slot=shelf.children[si];Array.prototype.forEach.call(shelf.children,function(e){e.classList.remove('new')});slot.className='eng9-v on new';slot.innerHTML=thumb(o,false);eps++;document.getElementById('eng9epn').textContent=eps;var p=o.dur.split(':');mins+=(+p[0])+(+p[1])/60;document.getElementById('eng9hrn').textContent=(mins/60).toFixed(1)+' hrs';if(!fm[o.ser]){fm[o.ser]=1;fmn++;document.getElementById('eng9fm').textContent=fmn}},t));
+  t+=260;
+ });
+ timers.push(setTimeout(function(){document.getElementById('eng9where').textContent='100% owned'},t+400));
+}
+document.getElementById('eng9replay').addEventListener('click',run);
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!ran){ran=true;run();io.disconnect()}},{threshold:.25});io.observe(document.getElementById('eng9lib'))}else{run()}
+})();
+</script>
 </section>
 
 <!-- 09 SCALE -->
