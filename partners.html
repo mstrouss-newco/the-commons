@@ -286,6 +286,7 @@
 .split h2{max-width:16ch}
 .split .body{max-width:52ch}
 @media(max-width:860px){.split{grid-template-columns:1fr;gap:2rem}}
+@media(min-width:861px){.split.w2{grid-template-columns:1.2fr .8fr}}
 .giant{text-align:right;font-size:clamp(5rem,13vw,11rem);font-weight:800;line-height:.85;letter-spacing:-.05em;color:var(--neon)}
 .giant small{display:block;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:1rem;font-weight:600}
 .bg-dark .stats .stat .n{color:#fff}
@@ -323,14 +324,14 @@
 <!-- 02 HISTORY -->
 <section class="block bg-dark band" style="--acc:var(--neon)"><div class="wrap">
   <div class="marker"><span class="num">02</span><span class="bar"></span></div>
-  <div class="split">
+  <div class="split w2">
     <div>
       <div class="beat"><div class="eyebrow">A little history</div>
       <h2>We built the largest hands-on cooking class in the country.</h2>
       <p class="body">Under LivingSocial, we retrofitted a 200-year-old, 30,000-square-foot building in downtown Washington and named it 918 F Street. Dozens of people cooked side by side, led by the city's best chefs and the biggest names in food: a healthy-cooking night with Biz Markie, Top Chef winner Kristen Kish, dishes from José Andrés' Jaleo, a molecular-gastronomy night from the chef behind minibar.</p>
       <p class="body">The classes were the highlight of the building and the part that made money. LivingSocial pulled back in 2014 and the venue closed. Nobody has picked the idea back up.</p></div>
       <div class="beat statgrid">
-        <div class="stat"><div class="n">$10M+</div><div class="l">In sales</div></div>
+        <div class="stat"><div class="n">150K</div><div class="l">Guests a year</div></div>
         <div class="stat"><div class="n">80</div><div class="l">Events per week</div></div>
         <div class="stat"><div class="n">300+</div><div class="l">Unique concepts</div></div>
         <div class="stat"><div class="n">200+</div><div class="l">Premium partners</div></div>
@@ -338,7 +339,7 @@
         <div class="stat"><div class="n">#1</div><div class="l">Voted best cooking class in DC</div></div>
       </div>
     </div>
-    <div class="beat giant">150K<small>Guests a year</small></div>
+    <div class="beat giant" style="font-size:clamp(4.5rem,9vw,7.5rem)">$10M+<small>In sales</small></div>
   </div>
 </div></section>
 <!-- 03 MEET -->
