@@ -271,44 +271,80 @@
   .lbx .x{top:14px;right:18px;font-size:1.9rem;}
   .lbx .prev,.lbx .next{top:50%;transform:translateY(-50%);font-size:2.4rem;}
   .lbx .prev{left:4px;} .lbx .next{right:4px;}
+
+/* mock v2 */
+.hero2{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:var(--ink);overflow:hidden}
+.hero2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}
+.hero2:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,38,.15) 30%,rgba(18,24,38,.92) 100%)}
+.hero2 .inner{position:relative;z-index:1;padding:0 clamp(1.5rem,6vw,6rem) 9vh;max-width:1120px;margin:0 auto;width:100%}
+.hero2 .brand{color:#fff;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;margin-bottom:1.6rem}
+.hero2 h1{color:#fff;font-size:clamp(2.6rem,7vw,5.6rem);font-weight:800;line-height:.98;letter-spacing:-.03em;max-width:14ch;margin:0}
+.hero2 .sub{color:rgba(255,255,255,.8);font-size:clamp(1.05rem,1.8vw,1.35rem);max-width:42ch;margin-top:1.4rem;font-weight:500}
+.hero2 .tag{display:inline-block;background:var(--neon);color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .7rem;border-radius:4px;margin-top:2rem}
+.band{padding:12vh 0}
+.split{display:grid;grid-template-columns:1.35fr .65fr;gap:3rem;align-items:center}
+.split h2{max-width:16ch}
+.split .body{max-width:52ch}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:2rem}}
+.giant{text-align:right;font-size:clamp(5rem,13vw,11rem);font-weight:800;line-height:.85;letter-spacing:-.05em;color:var(--neon)}
+.giant small{display:block;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:1rem;font-weight:600}
+.bg-dark .stats .stat .n{color:#fff}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem 1.5rem;margin-top:2.4rem}
+.statgrid .stat .n{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.money{display:grid;grid-template-columns:1.25fr .75fr;gap:3.5rem;align-items:end}
+@media(max-width:860px){.money{grid-template-columns:1fr}}
+.money .stats{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem 1.2rem;margin:0}
+.bg-dark .ramp{border-bottom-color:rgba(255,255,255,.5)}
+.bg-dark .seg.cls{background:#fff}
+.bg-dark .rampx span,.bg-dark .rlegend{color:rgba(255,255,255,.7)}
+.bg-dark .tot{color:#fff}
+.oneliner{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:800;line-height:1.2;letter-spacing:-.02em;max-width:26ch;color:var(--ink)}
+.oneliner b{color:var(--blue)}
+.close2{background:var(--ink);min-height:92vh;display:flex;align-items:center}
+.close2 .wrap{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;width:100%}
+@media(max-width:860px){.close2 .wrap{grid-template-columns:1fr}}
+.close2 h2{color:#fff}
+.close2 .ask{font-size:clamp(1.1rem,2vw,1.4rem);color:rgba(255,255,255,.85);max-width:40ch;margin-top:1rem}
+.close2 .btn{display:inline-block;background:var(--neon);color:var(--ink);font-weight:800;padding:.95rem 1.4rem;border-radius:6px;margin-top:2rem;text-decoration:none;letter-spacing:.02em}
+.close2 .who{text-align:left;color:rgba(255,255,255,.75);font-size:.95rem;max-width:26ch}
+.close2 .who .ph{width:120px;height:120px;border-radius:50%;background:#2a3348;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+.close2 .who b{display:block;color:#fff;font-size:1.1rem;margin-bottom:.3rem}
+.block{padding:11vh 0}
 </style>
 </head>
 <body>
 
 <!-- 01 COVER -->
-<section class="screen hero-center bg-dark" style="--acc:var(--neon)">
-  <div class="cover-name beat">The Commons</div>
-  <div class="cover-bar" id="bar"></div>
-  <div class="cover-tag beat" style="transition-delay:.6s;text-transform:uppercase;letter-spacing:.05em;font-weight:600">Everyone has a story to tell through food</div>
-  <div class="scrollcue">Scroll</div>
+<section class="hero2">
+  <img src="img/room-hero.jpg" alt="">
+  <div class="inner">
+    <div class="brand">The Commons</div>
+    <h1>Everyone has a story to tell through food.</h1>
+    <p class="sub">A 48-seat kitchen in Los Angeles where chefs, creators, and names cook with their audience in person. The best nights get filmed.</p>
+    <span class="tag">Design rendering · LA flagship</span>
+  </div>
 </section>
-
 <!-- 02 HISTORY -->
-<section class="block" style="--acc:var(--blue)"><div class="wrap">
+<section class="block bg-dark band" style="--acc:var(--neon)"><div class="wrap">
   <div class="marker"><span class="num">02</span><span class="bar"></span></div>
-  <div class="beat">
-    <div class="eyebrow">A little history</div>
-    <h2>Once upon a time, we built the largest hands-on cooking class in the country.</h2>
-    <p class="body">Under LivingSocial, our team retrofitted a 200-year-old, 30,000-square-foot building in downtown Washington and named it 918 F Street. Without quite realizing it, we'd created something that existed nowhere else: a room where dozens of people cooked side by side, led by the best chefs in the city — and the biggest names in food.</p>
-  </div>
-  <div class="beat">
-    <p class="body">Most nights were led by the city's top culinary talent — the chefs behind the restaurants people were already lined up to get into. But the magic showed up when we brought in national names who simply had <span class="pop">a story to tell through food:</span> a healthy-cooking class with Biz Markie, a night with Top Chef winner — and now host — Kristen Kish, dishes from José Andrés' Jaleo, and a molecular-gastronomy night led by the chef behind his minibar.</p>
-  </div>
-  <div class="beat stats">
-    <div class="stat"><div class="n">$10M+</div><div class="l">In sales</div></div>
-    <div class="stat"><div class="n">150K</div><div class="l">Guests per year</div></div>
-    <div class="stat"><div class="n">80</div><div class="l">Events per week</div></div>
-    <div class="stat"><div class="n">300+</div><div class="l">Unique concepts</div></div>
-    <div class="stat"><div class="n">200+</div><div class="l">Premium partners</div></div>
-    <div class="stat"><div class="n">93</div><div class="l">Net Promoter Score</div></div>
-  </div>
-  <div class="beat">
-    <p class="body soft">It was voted the best cooking class in DC. Then LivingSocial pulled back, and in 2014, 918 F Street closed.</p>
-    <p class="big" style="margin-top:1.6rem;max-width:20ch;">Nobody has reimagined the cooking class experience.</p>
-    <p class="big" style="margin-top:.5rem;text-transform:uppercase"><span class="hl">Until now.</span></p>
+  <div class="split">
+    <div>
+      <div class="beat"><div class="eyebrow">A little history</div>
+      <h2>We built the largest hands-on cooking class in the country.</h2>
+      <p class="body">Under LivingSocial, we retrofitted a 200-year-old, 30,000-square-foot building in downtown Washington and named it 918 F Street. Dozens of people cooked side by side, led by the city's best chefs and the biggest names in food: a healthy-cooking night with Biz Markie, Top Chef winner Kristen Kish, dishes from José Andrés' Jaleo, a molecular-gastronomy night from the chef behind minibar.</p>
+      <p class="body">The classes were the highlight of the building and the part that made money. LivingSocial pulled back in 2014 and the venue closed. Nobody has picked the idea back up.</p></div>
+      <div class="beat statgrid">
+        <div class="stat"><div class="n">$10M+</div><div class="l">In sales</div></div>
+        <div class="stat"><div class="n">80</div><div class="l">Events per week</div></div>
+        <div class="stat"><div class="n">300+</div><div class="l">Unique concepts</div></div>
+        <div class="stat"><div class="n">200+</div><div class="l">Premium partners</div></div>
+        <div class="stat"><div class="n">93</div><div class="l">Net Promoter Score</div></div>
+        <div class="stat"><div class="n">#1</div><div class="l">Voted best cooking class in DC</div></div>
+      </div>
+    </div>
+    <div class="beat giant">150K<small>Guests a year</small></div>
   </div>
 </div></section>
-
 <!-- 03 MEET -->
 <section class="screen meet" style="--acc:var(--neon)">
   <div class="marker"><span class="num">03</span><span class="bar"></span></div>
@@ -775,15 +811,13 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en
 </section>
 
 <!-- 09 SCALE -->
-<section class="block" style="--acc:var(--neon)"><div class="wrap">
+<section class="block bg-dark band" style="--acc:var(--neon)"><div class="wrap">
   <div class="marker"><span class="num">10</span><span class="bar"></span></div>
-  <div class="beat">
-    <div class="eyebrow">The portfolio at scale</div>
-    <h2>Prove one room. Then build ten.</h2>
-    <p class="body">We open Los Angeles first and prove the economics in a single profitable room. Then we scale across the country — ten rooms over eight years — and the revenue compounds into a national network.</p>
-  </div>
-  <div class="beat">
-    <div class="ramp">
+  <div class="beat"><div class="eyebrow">The big picture</div>
+  <h2>Prove one room. Then build ten.</h2>
+  <p class="body" style="max-width:60ch">Every room pays for itself on tickets. Brand and content stack on top, and they grow with the audience, not the rent. Ten rooms over eight years takes one profitable room to a $106M network.</p></div>
+  <div class="money beat">
+    <div><div class="ramp">
       <div class="col2"><span class="tot">$3M</span><div class="seg cls" style="height:7px"></div><div class="seg brd" style="height:4px"></div></div>
       <div class="col2"><span class="tot">$9M</span><div class="seg cls" style="height:19px"></div><div class="seg brd" style="height:4px"></div></div>
       <div class="col2"><span class="tot">$15M</span><div class="seg cls" style="height:29px"></div><div class="seg brd" style="height:6px"></div></div>
@@ -797,62 +831,34 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en
     <div class="rlegend">
       <span><i style="background:var(--ink)"></i>Class — tickets, bar &amp; private events</span>
       <span><i style="background:var(--blue)"></i>Brand + content — the media line</span>
+    </div></div>
+    <div class="stats">
+      <div class="stat"><div class="n">$9.0M</div><div class="l">Year-two unit revenue</div></div>
+      <div class="stat"><div class="n">$2.1M</div><div class="l">Year-two unit EBITDA</div></div>
+      <div class="stat"><div class="n">~$3.2M</div><div class="l">To open a unit</div></div>
+      <div class="stat"><div class="n">~14 mo</div><div class="l">Payback</div></div>
     </div>
   </div>
-  <div class="beat">
-    <p class="big" style="margin-top:1.6rem;max-width:26ch;">One room becomes a network. <span style="color:var(--blue)">$3M to $106M in revenue.</span></p>
-    <p class="body" style="margin-top:1rem;max-width:62ch;">Class revenue is the profitable foundation — every room pays for itself on tickets alone. Brand and content stack on top: higher-margin upside that grows with the network's audience, not its rent.</p>
-  </div>
+  <p class="body soft beat" style="margin-top:2rem;max-width:60ch">Ten units, $105M+ in revenue, $39M in EBITDA, with talent circulating between markets and brands following them across the network.</p>
 </div></section>
-
 <!-- 10 COMPETITIVE -->
 <section class="block" style="--acc:var(--neon)"><div class="wrap">
   <div class="marker"><span class="num">11</span><span class="bar"></span></div>
-  <div class="beat">
-    <div class="eyebrow">The industry today</div>
-    <h2>Bigger, better, and far more profitable than anything out there.</h2>
-    <p class="beat" style="margin-top:1.1rem;"><span class="vpill">Every figure below is per single unit</span></p>
-    <p class="body">A typical cooking class seats sixteen people who share burners and follow an instructor they've never heard of — or you pay $500-plus for a multi-week course at a culinary school. <span class="pop">The Commons is a different category:</span> personal stations, real talent, tablets and cameras at every seat, and a full bar.</p>
-  </div>
-  <p class="body soft beat" style="margin-bottom:.1rem;">Head to head — a single Commons room against the category’s best:</p>
-  <div class="cmp beat">
-    <div class="cmp-banner">All figures per single unit</div>
-    <div class="h"></div><div class="h">Top competitor<span class="sub">per unit</span></div><div class="h us">The Commons<span class="sub">per unit</span></div>
-    <div class="lbl">Annual revenue, single unit</div><div>$1.67M</div><div class="us">$9.0M</div>
-    <div class="lbl">Capacity per class</div><div>16</div><div class="us">48</div>
-    <div class="lbl">Unit EBITDA</div><div>$365K</div><div class="us">$2.1M</div>
-    <div class="lbl">Margin</div><div>13%</div><div class="us">23%</div>
-  </div>
-  <p class="body soft beat" style="margin-top:1.4rem;">There are other cooking classes out there. But nothing butter than The Commons.</p>
+  <div class="beat"><div class="eyebrow">The industry today</div>
+  <h2>A different category.</h2>
+  <p class="body">A typical cooking class seats sixteen people around shared burners with an instructor they've never heard of. The Commons is personal stations, real talent, tablets and cameras at every seat, and a full bar.</p>
+  <p class="oneliner" style="margin-top:1.6rem">The best sixteen-seat class does about $1.7M a year. <b>One Commons room does $9M.</b></p></div>
 </div></section>
-
-<!-- 11 BIG PICTURE -->
-<section class="block" style="--acc:var(--blue)"><div class="wrap">
-  <div class="marker"><span class="num">12</span><span class="bar"></span></div>
-  <div class="beat">
-    <div class="eyebrow">The big picture</div>
-    <h2>A media engine, fueled by <span class="pop">millions of can't-miss nights.</span></h2>
-    <p class="body">It isn't the rooms that make this extraordinary — it's the nights inside them. Each one is a you-had-to-be-there experience: a celebrity in an apron, a chef opening their kitchen, a creator with their whole audience in the room. And there's always a new one — so guests don't come once, they come back through the year.</p>
-    <p class="body">And each of those rooms is already a profitable business on its own.</p>
-  </div>
-  <div class="beat stats">
-    <div class="stat"><div class="n">$9.0M</div><div class="l">Year-two unit revenue</div></div>
-    <div class="stat"><div class="n">$2.1M</div><div class="l">Year-two unit EBITDA</div></div>
-    <div class="stat"><div class="n">~$3.2M</div><div class="l">To open a unit</div></div>
-    <div class="stat"><div class="n">~14 mo</div><div class="l">Payback</div></div>
-  </div>
-  <p class="body soft beat">The plan: <span class="pop" style="color:var(--ink)">ten units over eight years — scaling to $105M+ in revenue and $39M in EBITDA,</span> with the talent circulating between markets and the brands following them across the network.</p>
-</div></section>
-
 <!-- 13 CLOSE -->
-<section class="screen bg-dark" style="--acc:var(--neon)">
-  <div class="marker"><span class="num">13</span><span class="bar"></span></div>
+<section class="close2"><div class="wrap">
   <div class="beat">
-    <h2 class="big" style="max-width:18ch;">We're building the first one in Los Angeles.</h2>
-    <p class="lede" style="margin-top:1.5rem;">If you want to see the room before anyone else does, let's talk.</p>
+    <div class="marker"><span class="num">12</span><span class="bar"></span></div>
+    <h2 class="big" style="max-width:16ch">We're building the first one in Los Angeles.</h2>
+    <p class="ask">Raising $5M to open the flagship and build the channel. If you want to see the room before anyone else does, let's talk.</p>
+    <a class="btn" href="mailto:mike@the-commons.co">mike@the-commons.co</a>
   </div>
-</section>
-
+  <div class="beat who"><div class="ph">Photo</div><b>Mike Strouss</b>Ran 918 F Street at LivingSocial. Operations and growth at Prizeo, ShopShops, and Capsule.</div>
+</div></section>
 <script>
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.18});
   document.querySelectorAll('.beat,#bar').forEach(el=>io.observe(el));
